@@ -1,90 +1,51 @@
-<!DOCTYPE html><html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HERRR THHRRR ANOMALI MENGERIKAN YANH DATANG MEMINTA THR</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');body {
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
-        background: linear-gradient(to right, #ff7e5f, #feb47b);
-        color: white;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-    .container {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
-    .envelope {
-        position: relative;
-        width: 250px;
-        height: 150px;
-        background: #d9534f;
-        border-radius: 10px;
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-    .envelope:hover {
-        transform: scale(1.1);
-    }
-    .envelope::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 125px solid transparent;
-        border-right: 125px solid transparent;
-        border-bottom: 50px solid #d9534f;
-    }
-    .qr-container {
-        margin-top: 20px;
-        display: none;
-        animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    img.qr-code {
-        width: 200px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet" />
+    <title>Harits - BAGI THR BOSS</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="background">
+      <div class="night"></div>
+      <div id="heart-container"></div>
+    </div>
 
-</head>
-<body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="icon-crescent" viewBox="0 0 32 32">
+          <title>crescent</title>
+          <path
+            d="M21.557 4.442c-4.908-1.46-10.157 1.331-11.617 6.239-1.46 4.909 1.331 10.158 6.239 11.617 4.908 1.46 10.157-1.331 11.617-6.239 0.415-1.394 0.553-2.85 0.415-4.264-1.111 3.247-4.038 5.724-7.667 6.14-4.493 0.516-8.569-2.716-9.085-7.209-0.516-4.493 2.716-8.569 7.209-9.085 1.342-0.154 2.667-0.041 3.889 0.315-0.33-0.083-0.667-0.167-1-0.24z"
+          ></path>
+        </symbol>
+      </defs>
+    </svg>
+
     <div class="container">
-        <h1>HERRRRR TEEEHAAAERRRR</h1>
-        <p>Ketuk amplop untuk melihat QR GoPay.</p>
-        <div class="envelope" onclick="showQR()">
-            <span>📩 Ketuk Disini</span>
+      <a class="envelope-wrapper js-open-envelope" href="#">
+        <div class="envelope tossing">
+          <div class="envelope__side envelope__side--top"></div>
+          <div class="envelope__card">
+            <p class="enveloper__card-text">Selamat<br />Hari Raya<br />Aidilfitri!<br /><span class="arabic">عيد مبارك</span></p>
+            <div class="card-image-container">
+              <!-- Replace this with your actual image -->
+              <p class="small-text">Scan the QR for duit raya 😜</p>
+              <img src="qr.jpg" alt="Hari Raya Celebration" class="card-image" />
+            </div>
+          </div>
+          <div class="envelope__side envelope__side--right"></div>
+          <div class="envelope__side envelope__side--left"></div>
+          <div class="envelope__side envelope__side--bottom"></div>
+          <svg class="crescent"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-crescent"></use></svg>
         </div>
-        <div class="qr-container" id="qr-container">
-            <img class="qr-code" src="gopay-qr.png" alt="Scan untuk bayar via GoPay">
-        </div>
-    </div><script>
-    function showQR() {
-        document.getElementById("qr-container").style.display = "block";
-    }
-</script>
+      </a>
+    </div>
 
-</body>
+    <script src="jquery.js"></script>
+    <script src="duit-raya.js"></script>
+  </body>
 </html>

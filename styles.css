@@ -1,0 +1,308 @@
+body {
+  background-color: #004d00;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.envelope-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  transform: translate(-50%, -20%);
+  z-index: 20;
+}
+
+.envelope {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 200px;
+  margin: auto;
+  background-color: #008000;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 15px #ffd700;
+}
+
+.envelope .envelope__card {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 250px;
+  height: 195px;
+  margin: 0 25px;
+  background-color: #fff5e6;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23008000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.envelope .envelope__card.open {
+  -webkit-animation: cardJump 0.5s ease 0.5s forwards, cardExpand 0.5s ease 1s forwards;
+  -o-animation: cardJump 0.5s ease 0.5s forwards, cardExpand 0.5s ease 1s forwards;
+  animation: cardJump 0.5s ease 0.5s forwards, cardExpand 0.5s ease 1s forwards;
+  z-index: 1;
+}
+
+.envelope .enveloper__card-text {
+  padding: 20px;
+  font-size: 38px;
+  margin: 0;
+  color: #006600;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease 1.5s;
+  text-align: center;
+}
+
+.envelope__card.open .card-image-container {
+  height: 200px;
+  margin-top: 10px;
+}
+
+.card-image {
+  max-width: 55%;
+  max-height: 190px;
+  border: 3px solid #ffd700;
+  border-radius: 10px;
+}
+
+.arabic {
+  font-family: "Amiri", serif;
+  font-size: 42px;
+  color: #008000;
+}
+
+.envelope .envelope__side {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  z-index: 2;
+}
+
+.envelope .envelope__side--left {
+  left: 0;
+  border-width: 100px 0 100px 150px;
+  border-color: transparent transparent transparent #006600;
+}
+
+.envelope .envelope__side--right {
+  right: 0;
+  border-width: 100px 150px 100px 0;
+  border-color: transparent #006600 transparent transparent;
+}
+
+.envelope .envelope__side--bottom {
+  top: auto;
+  left: 0;
+  bottom: 0;
+  border-width: 0 150px 100px 150px;
+  border-color: transparent transparent #004d00 transparent;
+}
+
+.envelope .envelope__side--top {
+  top: 0;
+  left: 0;
+  bottom: auto;
+  border-width: 100px 150px 0 150px;
+  border-color: #004d00 transparent transparent transparent;
+  z-index: 1;
+}
+
+.envelope.open > .envelope__side--top {
+  top: -100px;
+  border-width: 0 150px 100px 150px;
+  border-color: transparent transparent #008000 transparent;
+}
+
+.crescent {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: -25%;
+  margin-left: -25px;
+  width: 50px;
+  fill: #ffd700;
+  z-index: 2;
+  transition: 0.2s;
+}
+
+.envelope:hover .crescent {
+  transform: scale(1.2);
+  transition: 0.5s ease;
+}
+
+.envelope.open:hover .crescent {
+  transform: none;
+}
+
+.small-text {
+  font-size: 14px; /* Adjust the size as needed */
+  color: #006600; /* Match the theme color */
+  text-align: center;
+  margin-bottom: 10px; /* Add spacing between the text and the image */
+  font-family: "Arial", sans-serif;
+}
+
+.tossing {
+  animation-name: tossing;
+  -webkit-animation-name: tossing;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+
+@keyframes tossing {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+
+@-webkit-keyframes tossing {
+  0% {
+    -webkit-transform: rotate(-4deg);
+  }
+  50% {
+    -webkit-transform: rotate(4deg);
+  }
+  100% {
+    -webkit-transform: rotate(-4deg);
+  }
+}
+
+@keyframes cardJump {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+@-webkit-keyframes cardJump {
+  from {
+    -webkit-transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-200px);
+  }
+}
+
+@keyframes cardExpand {
+  from {
+    width: 250px;
+    height: 200px;
+  }
+  to {
+    width: 250px;
+    height: 450px;
+  }
+}
+
+@-webkit-keyframes cardExpand {
+  from {
+    width: 250px;
+    height: 200px;
+  }
+  to {
+    width: 300px;
+    height: 450px;
+  }
+}
+
+@keyframes envelopeMove {
+  from {
+    transform: translateY(0); /* Initial position */
+  }
+  to {
+    transform: translateY(50px); /* Move the envelope up */
+  }
+}
+
+.envelope.open {
+  animation: envelopeMove 0.5s ease forwards; /* Move the envelope */
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #002200;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(255, 215, 0, 0.2)),
+    repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(0, 77, 0), rgb(0, 51, 0));
+}
+
+#heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
