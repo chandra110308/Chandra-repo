@@ -1,1 +1,90 @@
-ok
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERRR THHRRR ANOMALI MENGERIKAN YANH DATANG MEMINTA THR</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');body {
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+    .envelope {
+        position: relative;
+        width: 250px;
+        height: 150px;
+        background: #d9534f;
+        border-radius: 10px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+    .envelope:hover {
+        transform: scale(1.1);
+    }
+    .envelope::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 125px solid transparent;
+        border-right: 125px solid transparent;
+        border-bottom: 50px solid #d9534f;
+    }
+    .qr-container {
+        margin-top: 20px;
+        display: none;
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    img.qr-code {
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>HERRRRR TEEEHAAAERRRR</h1>
+        <p>Ketuk amplop untuk melihat QR GoPay.</p>
+        <div class="envelope" onclick="showQR()">
+            <span>📩 Ketuk Disini</span>
+        </div>
+        <div class="qr-container" id="qr-container">
+            <img class="qr-code" src="gopay-qr.png" alt="Scan untuk bayar via GoPay">
+        </div>
+    </div><script>
+    function showQR() {
+        document.getElementById("qr-container").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
